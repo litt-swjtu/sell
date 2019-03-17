@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 /**
  * @author 李天峒
  * 买家商品
-* */
+ */
 @RestController                       //返回Json格式
 @RequestMapping("/buyer/product")
 public class BuyerProductController {
@@ -35,7 +35,7 @@ public class BuyerProductController {
     private CategoryService categoryService;
 
     @GetMapping("/list")
-    public ResultVO List(){
+    public ResultVO List() {
 
         //1、查询所有的上架商品
         List<ProductInfo> productInfoList = productService.findUpAll();
@@ -48,6 +48,7 @@ public class BuyerProductController {
             categoryTypeList.add(productInfo.getCategoryType());
         }*/
         /*精简方法(lombda表达式) */
+
         List<Integer> categoryTypeList = productInfoList.stream()
                 .map(e -> e.getCategoryType())
                 .collect(Collectors.toList());
@@ -55,7 +56,7 @@ public class BuyerProductController {
 
         //3、数据拼装
         List<ProductVO> productVOList = new ArrayList<>();
-        for(ProductCategory productCategory: productCategoryList){
+        for (ProductCategory productCategory : productCategoryList) {
             //定义一个类目下属的结构对象（productVO）
             ProductVO productVO = new ProductVO();
             //赋值类目类型编号
@@ -63,8 +64,8 @@ public class BuyerProductController {
             //赋值类目类型名称
             productVO.setCategoryName(productCategory.getCategoryName());
             List<ProductInfoVO> productInfoVOList = new ArrayList<>();
-            for(ProductInfo productInfo : productInfoList){
-                if(productInfo.getCategoryType().equals(productCategory.getCategoryType())) {
+            for (ProductInfo productInfo : productInfoList) {
+                if (productInfo.getCategoryType().equals(productCategory.getCategoryType())) {
                     //定义一个商品下属的结构对象（ProductInfoVO）
                     ProductInfoVO productInfoVO = new ProductInfoVO();
                     /*普通方式
@@ -76,7 +77,7 @@ public class BuyerProductController {
 
                     //特殊方式  Java8语法
                     //一次性直接赋值
-                    BeanUtils.copyProperties(productInfo,productInfoVO);
+                    BeanUtils.copyProperties(productInfo, productInfoVO);
                     //将商品信息添加到list中保存
                     productInfoVOList.add(productInfoVO);
                 }
