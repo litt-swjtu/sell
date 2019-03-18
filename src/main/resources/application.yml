@@ -14,6 +14,7 @@ server:
 wechat:
   mpAppId: wx0be9b40c581543c7
   mpAppSecret: 548f8677c0a25b85ff599fc6e3b85437
-  mchId: gh_51a50a709598
+  mchId: oYBsE1TnLzuKYdbgqK1_8Kuj_Atw
   mchKey: c976503d34ca432c601361f969fd8d85
-  keyPath:
+  keyPath: /sell/h5.p12
+  notiyfUrl: http://swjtu.nat300.top/sell/ay/notify

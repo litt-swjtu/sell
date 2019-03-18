@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * 支付
@@ -23,8 +24,8 @@ public class PayController {
     private OrderService orderService;
 
     @GetMapping("/create")
-    public void create(@RequestParam("orderId") String orderId,
-                       @RequestParam("returnUrl") String returnUrl){
+    public ModelAndView create(@RequestParam("orderId") String orderId,
+                               @RequestParam("returnUrl") String returnUrl){
 
         //1.查询订单
         OrderDTO orderDTO = orderService.findOne(orderId);
@@ -33,6 +34,8 @@ public class PayController {
         }
 
         //2.发起支付
+
+        return new ModelAndView("pay/create");
 
     }
 }

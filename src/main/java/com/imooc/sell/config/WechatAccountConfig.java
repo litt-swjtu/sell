@@ -31,8 +31,7 @@ public class WechatAccountConfig {
      * */
     private String keyPath;
     /**
-     * 微信支付一步通知地址
+     * 微信支付异步通知地址
      * */
     private String notiyfUrl;
-
 }
