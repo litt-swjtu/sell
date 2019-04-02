@@ -1,4 +1,5 @@
 package com.imooc.sell.repository;
+
 import com.imooc.sell.dataobject.ProductCategory;
 import org.junit.Assert;
 import org.junit.Test;
@@ -13,6 +14,7 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
@@ -32,8 +34,8 @@ public class ProductCategoryRepositoryTest {
     /*新增测试*/
     @Test
     @Transactional
-    public void saveTest(){
-        ProductCategory productCategory = new ProductCategory("女生最爱",3);
+    public void saveTest() {
+        ProductCategory productCategory = new ProductCategory("女生最爱", 3);
         ProductCategory result = repository.save(productCategory);
         Assert.assertNull(result);               /*添加断言*/
 //        Assert.assertNotEquals(null,result);
@@ -41,20 +43,20 @@ public class ProductCategoryRepositoryTest {
 
     /*修改测试*/
     @Test
-    public void updataTest(){
+    public void updataTest() {
         ProductCategory productCategory = repository.findById(1).get();
         productCategory.setCategoryType(1);
         repository.save(productCategory);
     }
 
     @Test
-    public void findByCategoryTypeIn(){
+    public void findByCategoryTypeIn() {
 
-        List<Integer> list = Arrays.asList(1,2);
+        List<Integer> list = Arrays.asList(1, 2);
 
         System.out.println(list);
         List<ProductCategory> result = repository.findByCategoryTypeIn(list);
-        Assert.assertNotEquals(0,result.size());
+        Assert.assertNotEquals(0, result.size());
 
     }
 

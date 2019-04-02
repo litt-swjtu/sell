@@ -43,7 +43,7 @@ public class ProductInfoRepositoryTest {
     public void findByProductStatus() throws Exception {
 
         List<ProductInfo> productInfoList = repository.findByProductStatus(0);
-        Assert.assertNotEquals(0,productInfoList.size());
+        Assert.assertNotEquals(0, productInfoList.size());
 
     }
 

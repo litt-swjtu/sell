@@ -53,42 +53,42 @@ public class OrderServiceImplTest {
 
         orderDTO.setOrderDetailList(orderDetailList);
         OrderDTO result = orderService.create(orderDTO);
-        log.info("【创建订单】 result ={}",result);
+        log.info("【创建订单】 result ={}", result);
         Assert.assertNotNull(result);
     }
 
     @Test
     public void findOne() {
         OrderDTO result = orderService.findOne(ORDERID);
-        log.info("【查询订单详情】 result={}",result);
-        Assert.assertEquals(ORDERID,result.getOrderId());
+        log.info("【查询订单详情】 result={}", result);
+        Assert.assertEquals(ORDERID, result.getOrderId());
     }
 
     @Test
     public void findList() {
-        PageRequest request = new PageRequest(0,2);
-        Page<OrderDTO> orderDTOPage = orderService.findList(BUYER_OPENID,request);
-        Assert.assertNotEquals(0,orderDTOPage.getTotalElements());
+        PageRequest request = new PageRequest(0, 2);
+        Page<OrderDTO> orderDTOPage = orderService.findList(BUYER_OPENID, request);
+        Assert.assertNotEquals(0, orderDTOPage.getTotalElements());
     }
 
     @Test
     public void cancel() {
         OrderDTO orderDTO = orderService.findOne(ORDERID);
         OrderDTO result = orderService.cancel(orderDTO);
-        Assert.assertEquals(OrderStatusEnum.CANCEL.getCode(),result.getOrderStatus());
+        Assert.assertEquals(OrderStatusEnum.CANCEL.getCode(), result.getOrderStatus());
     }
 
     @Test
     public void finish() {
         OrderDTO orderDTO = orderService.findOne(ORDERID);
         OrderDTO result = orderService.finish(orderDTO);
-        Assert.assertEquals(OrderStatusEnum.FINISHED.getCode(),result.getOrderStatus());
+        Assert.assertEquals(OrderStatusEnum.FINISHED.getCode(), result.getOrderStatus());
     }
 
     @Test
     public void paid() {
         OrderDTO orderDTO = orderService.findOne(ORDERID);
         OrderDTO result = orderService.paid(orderDTO);
-        Assert.assertEquals(PayStatusEnum.SUCCESS.getCode(),result.getPayStatus());
+        Assert.assertEquals(PayStatusEnum.SUCCESS.getCode(), result.getPayStatus());
     }
 }

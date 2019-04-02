@@ -22,7 +22,7 @@ public class OrderDetailRepositoryTest {
     private OrderDetailRepository repository;
 
     @Test
-    public void saveTest(){
+    public void saveTest() {
         OrderDetail orderDetail = new OrderDetail();
         orderDetail.setDetailId("113");
         orderDetail.setOrderId("123453");
@@ -34,10 +34,11 @@ public class OrderDetailRepositoryTest {
         OrderDetail result = repository.save(orderDetail);
         Assert.assertNotNull(result);
     }
+
     @Test
     public void findByOrderId() {
         List<OrderDetail> orderDetailList = repository.findByOrderId("123456");
         System.out.println(orderDetailList.size());
-        Assert.assertNotEquals(orderDetailList.size(),0);
+        Assert.assertNotEquals(orderDetailList.size(), 0);
     }
 }

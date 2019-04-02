@@ -18,12 +18,13 @@ import java.util.List;
 /**
  * @author 李天峒
  * 商品操作接口实现
- * */
+ */
 @Service
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductInfoRepository repository;
+
 
     @Override
     public ProductInfo findOne(String productId) {
@@ -45,12 +46,17 @@ public class ProductServiceImpl implements ProductService {
         return repository.save(productInfo);
     }
 
+    public ProductInfo update(ProductInfo productInfo) {
+
+        return repository.save(productInfo);
+    }
+
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void increaseStock(List<CartDTO> cartDTOList) {
-        for(CartDTO cartDTO:cartDTOList){
+        for (CartDTO cartDTO : cartDTOList) {
             ProductInfo productInfo = repository.findById(cartDTO.getProductId()).get();
-            if(productInfo == null){
+            if (productInfo == null) {
                 throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
             }
             Integer result = productInfo.getProductStock() + cartDTO.getProductQuantity();
@@ -64,13 +70,13 @@ public class ProductServiceImpl implements ProductService {
     @Override
     @Transactional(rollbackFor = Exception.class)    //事务，要么全部成功，要么全部不成功
     public void decreaseStock(List<CartDTO> cartDTOList) {
-        for(CartDTO cartDTO:cartDTOList){
+        for (CartDTO cartDTO : cartDTOList) {
             ProductInfo productInfo = repository.findById(cartDTO.getProductId()).get();
-            if(productInfo == null){
+            if (productInfo == null) {
                 throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
             }
-            Integer result = productInfo.getProductStock()-cartDTO.getProductQuantity();
-            if(result<0){
+            Integer result = productInfo.getProductStock() - cartDTO.getProductQuantity();
+            if (result < 0) {
                 throw new SellException(ResultEnum.PRODUCT_STOCK_ERROR);
             }
             productInfo.setProductStock(result);

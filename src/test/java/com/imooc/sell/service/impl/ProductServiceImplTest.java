@@ -29,6 +29,7 @@ public class ProductServiceImplTest {
         Assert.assertEquals("12345", productInfo.getProductId());
         System.out.println(productInfo.getProductName());
     }
+
     @Test
     public void findUpAll() {
         List<ProductInfo> productInfoList = productService.findUpAll();
@@ -41,20 +42,20 @@ public class ProductServiceImplTest {
         Page<ProductInfo> productInfoPage = productService.findAll(request);
 //        System.out.println(productInfoPage.getTotalElements());
 //        System.out.println(productInfoPage.getContent());
-        Assert.assertNotEquals(0,productInfoPage.getTotalElements());
+        Assert.assertNotEquals(0, productInfoPage.getTotalElements());
     }
 
     @Test
     public void save() {
         ProductInfo productInfo = new ProductInfo();
-        productInfo.setProductId("12346");
-        productInfo.setProductName("安慕希");
-        productInfo.setProductPrice(new BigDecimal(6));
-        productInfo.setProductStock(120);
-        productInfo.setProductDescription("很浓郁的牛奶");
-        productInfo.setProductIcon("http://xxxx");
-        productInfo.setProductStatus(1);
-        productInfo.setCategoryType(2);
+        productInfo.setProductId("12351");
+        productInfo.setProductName("荣耀10手机壳");
+        productInfo.setProductPrice(new BigDecimal(35));
+        productInfo.setProductStock(20);
+        productInfo.setProductDescription("荣耀10手机壳-大圣归来");
+        productInfo.setProductIcon("http://img1.imgtn.bdimg.com/it/u=649351277,1446286628&fm=26&gp=0.jpg");
+        productInfo.setProductStatus(0);
+        productInfo.setCategoryType(1);
 
         ProductInfo productInfo1 = productService.save(productInfo);
         Assert.assertNotNull(productInfo);

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 微信配置文件
+ *
  * @author 李天峒
  * @date 2019/3/11 22:14
  */
@@ -17,16 +18,17 @@ import org.springframework.stereotype.Component;
 public class WechatMpConfig {
 
     @Autowired
-    private WechatAccountConfig  accountConfig;
+    private WechatAccountConfig accountConfig;
 
     @Bean
-    public WxMpService wxMpService(){
+    public WxMpService wxMpService() {
         WxMpService wxMpService = new WxMpServiceImpl();
         wxMpService.setWxMpConfigStorage(wxMpConfigStorage());
         return wxMpService;
     }
+
     @Bean
-    public WxMpConfigStorage wxMpConfigStorage(){
+    public WxMpConfigStorage wxMpConfigStorage() {
         WxMpInMemoryConfigStorage wxMpConfigStorage = new WxMpInMemoryConfigStorage();
         wxMpConfigStorage.setAppId(accountConfig.getMpAppId());
         wxMpConfigStorage.setSecret(accountConfig.getMpAppSecret());

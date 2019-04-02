@@ -26,8 +26,9 @@ public class PayServiceImplTest {
 
     @Autowired
     private OrderService orderService;
+
     @Test
-    public void create() throws Exception{
+    public void create() throws Exception {
         OrderDTO orderDTO = orderService.findOne("1542285880743814330");
         payService.create(orderDTO);
     }

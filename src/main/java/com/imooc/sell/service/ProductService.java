@@ -19,6 +19,7 @@ public interface ProductService {
 
     /**
      * 查询一件商品
+     *
      * @param productId 商品id
      * @return ProductInfo 商品详情
      */
@@ -26,26 +27,29 @@ public interface ProductService {
 
     /**
      * 查询在架商品信息
+     *
      * @return 返回在架商品信息
      */
     List<ProductInfo> findUpAll();
 
     /**
      * 分页查询所有商品
-     * @param  pageable 分页参数设置
+     *
+     * @param pageable 分页参数设置
      * @return 商品分页显示详情
-     * */
+     */
     Page<ProductInfo> findAll(Pageable pageable);
 
     /**
      * 保存商品信息
-     * @param  productInfo 商品详细信息
-     * @return */
+     *
+     * @param productInfo 商品详细信息
+     * @return
+     */
     ProductInfo save(ProductInfo productInfo);
 
     /**
-     *加库存
-     *
+     * 加库存
      */
     void increaseStock(List<CartDTO> cartDTOList);
 

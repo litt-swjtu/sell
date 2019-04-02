@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 微信账号配置
+ *
  * @author 李天峒
  * @date 2019/3/11 22:25
  */
@@ -19,19 +20,19 @@ public class WechatAccountConfig {
     private String mpAppSecret;
 
     /**
-    * 商户号
-    * */
+     * 商户号
+     */
     private String mchId;
     /**
      * 商户密钥
-     * */
+     */
     private String mchKey;
     /**
      * 商户证书路径
-     * */
+     */
     private String keyPath;
     /**
      * 微信支付异步通知地址
-     * */
+     */
     private String notiyfUrl;
 }

@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 /**
  * 支付
+ *
  * @author 李天峒
  * @date 2019/3/11 23:13
  */
@@ -25,11 +26,11 @@ public class PayController {
 
     @GetMapping("/create")
     public ModelAndView create(@RequestParam("orderId") String orderId,
-                               @RequestParam("returnUrl") String returnUrl){
+                               @RequestParam("returnUrl") String returnUrl) {
 
         //1.查询订单
         OrderDTO orderDTO = orderService.findOne(orderId);
-        if(orderDTO == null){
+        if (orderDTO == null) {
             throw new SellException(ResultEnum.ORDER_NOT_EXIST);
         }
 

@@ -13,12 +13,13 @@ import org.springframework.stereotype.Service;
 
 /**
  * 支付功能实现
+ *
  * @author 李天峒
  * @date 2019/3/11 23:20
  */
 @Service
 @Slf4j
-public class PayServiceImpl  implements PayService {
+public class PayServiceImpl implements PayService {
 
     private static final String ORDER_NAME = "微信点餐订餐";
 
@@ -34,9 +35,9 @@ public class PayServiceImpl  implements PayService {
         payRequest.setOrderId(orderDTO.getOrderId());
         payRequest.setOrderName(ORDER_NAME);
         payRequest.setPayTypeEnum(BestPayTypeEnum.WXPAY_H5);
-        log.info("【微信支付】request ={}" ,JsonUtil.toJson(payRequest));
+        log.info("【微信支付】request ={}", JsonUtil.toJson(payRequest));
 
         PayResponse payResponse = bestPayService.pay(payRequest);
-        log.info("【微信支付response】={}" ,JsonUtil.toJson(payResponse));
+        log.info("【微信支付response】={}", JsonUtil.toJson(payResponse));
     }
 }

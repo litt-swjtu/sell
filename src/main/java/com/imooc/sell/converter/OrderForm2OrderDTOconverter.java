@@ -11,10 +11,11 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @Slf4j
 public class OrderForm2OrderDTOconverter {
 
-    public static OrderDTO converter(OrderForm orderForm){
+    public static OrderDTO converter(OrderForm orderForm) {
 
         Gson gson = new Gson();
 
@@ -30,7 +31,7 @@ public class OrderForm2OrderDTOconverter {
             orderDetailList = gson.fromJson(orderForm.getItems(),
                     new TypeToken<List<OrderDetail>>() {
                     }.getType());
-        }catch (Exception e){
+        } catch (Exception e) {
             log.error("【对象转换】错误，String ={}", orderForm.getItems());
             throw new SellException(ResultEnum.PARAM_ERROR);
         }

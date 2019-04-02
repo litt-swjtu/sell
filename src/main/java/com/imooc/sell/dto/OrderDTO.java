@@ -16,36 +16,58 @@ import java.util.List;
 /**
  * @author 李天峒
  * 订单和单件商品的转换类
- * */
+ */
 @Data
 /*@JsonSerialize include = JsonSerialize.Inclusion.NON_NULL
 @JsonInclude(JsonInclude.Include.NON_NULL)*/    /*非空的字段不返回  采用了配置文件的方法*/
 public class OrderDTO {
 
-    /** 订单ID.*/
+    /**
+     * 订单ID.
+     */
     private String orderId;
-    /** 买家姓名*/
+    /**
+     * 买家姓名
+     */
     private String buyerName;
-    /** 买家电话*/
+    /**
+     * 买家电话
+     */
     private String buyerPhone;
-    /** 买家地址*/
+    /**
+     * 买家地址
+     */
     private String buyerAddress;
-    /** 买家微信ID*/
+    /**
+     * 买家微信ID
+     */
     private String buyerOpenid;
-    /** 订单总金额*/
+    /**
+     * 订单总金额
+     */
     private BigDecimal orderAmount;
-    /** 订单状态（默认0新下单）*/
+    /**
+     * 订单状态（默认0新下单）
+     */
     private Integer orderStatus;
-    /** 支付状态(默认0未支付)*/
+    /**
+     * 支付状态(默认0未支付)
+     */
     private Integer payStatus;
-    /** 创建时间*/
+    /**
+     * 创建时间
+     */
     @JsonSerialize(using = Date2LongSerializer.class)
     private Date createTime;
-    /** 更新时间*/
+    /**
+     * 更新时间
+     */
     @JsonSerialize(using = Date2LongSerializer.class)
     private Date updateTime;
 
-    /**订单对应的商品对象  */
+    /**
+     * 订单对应的商品对象
+     */
     List<OrderDetail> orderDetailList;
 
 }

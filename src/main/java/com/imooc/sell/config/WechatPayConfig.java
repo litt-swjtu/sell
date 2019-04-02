@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 微信支付配置
+ *
  * @author 李天峒
  * @date 2019/3/12 18:51
  */
@@ -18,13 +19,14 @@ public class WechatPayConfig {
     private WechatAccountConfig accountConfig;
 
     @Bean
-    public BestPayServiceImpl bestPayService(){
+    public BestPayServiceImpl bestPayService() {
         BestPayServiceImpl bestPayService = new BestPayServiceImpl();
         bestPayService.setWxPayH5Config(wxPayH5Config());
         return bestPayService;
     }
+
     @Bean
-    public WxPayH5Config wxPayH5Config(){
+    public WxPayH5Config wxPayH5Config() {
         WxPayH5Config wxPayH5Config = new WxPayH5Config();
         wxPayH5Config.setAppId(accountConfig.getMpAppId());
         wxPayH5Config.setAppSecret(accountConfig.getMpAppSecret());

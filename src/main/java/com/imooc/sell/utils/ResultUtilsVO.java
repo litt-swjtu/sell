@@ -4,7 +4,7 @@ import com.imooc.sell.VO.ResultVO;
 
 public class ResultUtilsVO {
 
-    public static ResultVO success(Object object){
+    public static ResultVO success(Object object) {
         ResultVO resultVO = new ResultVO();
         resultVO.setCode(0);
         resultVO.setMessage("成功！");
@@ -12,11 +12,11 @@ public class ResultUtilsVO {
         return resultVO;
     }
 
-    public static ResultVO success(){
+    public static ResultVO success() {
         return success(null);
     }
 
-    public static ResultVO error(Integer code, String msg){
+    public static ResultVO error(Integer code, String msg) {
         ResultVO resultVO = new ResultVO();
         resultVO.setCode(code);
         resultVO.setMessage(msg);

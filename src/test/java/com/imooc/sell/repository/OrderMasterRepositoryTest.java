@@ -17,7 +17,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-@RunWith(SpringRunner.class )
+@RunWith(SpringRunner.class)
 @SpringBootTest
 public class OrderMasterRepositoryTest {
 
@@ -25,8 +25,9 @@ public class OrderMasterRepositoryTest {
     private OrderMasterRepository repository;
 
     private final String OPENID = "123456";
+
     @Test
-    public void savaTest(){
+    public void savaTest() {
         OrderMaster orderMaster = new OrderMaster();
         orderMaster.setOrderId("123457");
         orderMaster.setBuyerName("李天峒");
@@ -37,23 +38,26 @@ public class OrderMasterRepositoryTest {
         OrderMaster result = repository.save(orderMaster);
         Assert.assertNotNull(result);
     }
+
     @Test
-    public void updateTest(){
+    public void updateTest() {
         OrderMaster orderMaster = repository.findById("123456").get();
         orderMaster.setBuyerAddress("西安市");
         OrderMaster result = repository.save(orderMaster);
         Assert.assertNotNull(result);
     }
+
     @Test
-    public void selectTest(){
+    public void selectTest() {
         OrderMaster orderMaster = repository.findById("123456").get();
-        System.out.println(orderMaster.getBuyerName()+orderMaster.getBuyerPhone());
+        System.out.println(orderMaster.getBuyerName() + orderMaster.getBuyerPhone());
     }
+
     @Test
     public void findByBuyerOpenid() {
-        PageRequest pageRequest = new PageRequest(0,3);
-        Page<OrderMaster> result = repository.findByBuyerOpenid(OPENID,pageRequest);
-        Assert.assertNotEquals(result.getTotalElements(),0);
+        PageRequest pageRequest = new PageRequest(0, 3);
+        Page<OrderMaster> result = repository.findByBuyerOpenid(OPENID, pageRequest);
+        Assert.assertNotEquals(result.getTotalElements(), 0);
         System.out.println(result.getTotalElements());
     }
 }

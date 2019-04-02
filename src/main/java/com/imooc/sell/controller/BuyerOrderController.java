@@ -33,45 +33,46 @@ public class BuyerOrderController {
 
     @Autowired
     private BuyerService buyerService;
+
     /**
      * 创建订单
      */
     @PostMapping("/create")
-    public ResultVO<Map<String ,String>> create(@Valid OrderForm orderForm, BindingResult bindingResult){        //这里用的是Form方式来写入参数（参数过多的情况下使用）
+    public ResultVO<Map<String, String>> create(@Valid OrderForm orderForm, BindingResult bindingResult) {        //这里用的是Form方式来写入参数（参数过多的情况下使用）
 
         //判断from表单是否有参数错误
-        if(bindingResult.hasErrors()){
-            log.error("【订单创建】订单创建参数错误，bindingResult = {}",bindingResult);
+        if (bindingResult.hasErrors()) {
+            log.error("【订单创建】订单创建参数错误，bindingResult = {}", bindingResult);
             throw new SellException(ResultEnum.PARAM_ERROR.getCode(),
                     bindingResult.getFieldError().getDefaultMessage());
         }
 
         //判断购物车是否为空
         OrderDTO orderDTO = OrderForm2OrderDTOconverter.converter(orderForm);
-        if(CollectionUtils.isEmpty(orderDTO.getOrderDetailList())){
+        if (CollectionUtils.isEmpty(orderDTO.getOrderDetailList())) {
             log.error("【创建订单】购物车不能为空");
             throw new SellException(ResultEnum.CART_EMPTY);
         }
 
         OrderDTO createResult = orderService.create(orderDTO);
-        Map<String,String> map = new HashMap<>();
-        map.put("orderID",createResult.getOrderId());
+        Map<String, String> map = new HashMap<>();
+        map.put("orderID", createResult.getOrderId());
         return ResultUtilsVO.success(map);
     }
 
     /**
-     *订单列表
+     * 订单列表
      */
     @GetMapping("/list")
     public ResultVO<List<OrderDTO>> list(@RequestParam("openid") String openid,
-                                         @RequestParam(value = "page",defaultValue = "0") Integer page,
-                                         @RequestParam(value = "size",defaultValue = "10") Integer size){
-        if(StringUtils.isEmpty(openid)){
+                                         @RequestParam(value = "page", defaultValue = "0") Integer page,
+                                         @RequestParam(value = "size", defaultValue = "10") Integer size) {
+        if (StringUtils.isEmpty(openid)) {
             log.error("【查询订单列表】openid为空");
             throw new SellException(ResultEnum.PARAM_ERROR);
         }
-        PageRequest pageRequest = new PageRequest(page ,size);
-        Page<OrderDTO> orderDTOPage = orderService.findList(openid,pageRequest);
+        PageRequest pageRequest = new PageRequest(page, size);
+        Page<OrderDTO> orderDTOPage = orderService.findList(openid, pageRequest);
 
         return ResultUtilsVO.success(orderDTOPage.getContent());
         /*orderDTOPage.getTotalElements();
@@ -83,17 +84,18 @@ public class BuyerOrderController {
      */
     @GetMapping("/detail")
     public ResultVO<OrderDTO> detail(@RequestParam("openid") String openid,
-                                     @RequestParam("orderId") String orderId){
+                                     @RequestParam("orderId") String orderId) {
         OrderDTO orderDTO = buyerService.findOrderOne(openid, orderId);
         return ResultUtilsVO.success(orderDTO);
     }
+
     /**
      * @author 李天峒
      * 取消订单
      */
     @PostMapping("/cancel")
     public ResultVO cancel(@RequestParam("openid") String openid,
-                           @RequestParam("orderId") String orderId){
+                           @RequestParam("orderId") String orderId) {
         buyerService.cancelOrder(openid, orderId);
         return ResultUtilsVO.success();
     }
