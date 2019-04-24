@@ -85,6 +85,7 @@ public class OrderServiceImpl implements OrderService {
             cartDTOList.add(cartDTO);
 */
         }
+
         //3. 写入订单数据库（orderMaster）
         OrderMaster orderMaster = new OrderMaster();
         orderDTO.setOrderId(orderId);

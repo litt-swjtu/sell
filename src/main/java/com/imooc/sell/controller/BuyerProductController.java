@@ -47,8 +47,8 @@ public class BuyerProductController {
         for(ProductInfo productInfo:productInfoList){
             categoryTypeList.add(productInfo.getCategoryType());
         }*/
-        /*精简方法(lombda表达式) */
 
+        // 精简方法(lombda表达式)
         List<Integer> categoryTypeList = productInfoList.stream()
                 .map(e -> e.getCategoryType())
                 .collect(Collectors.toList());
@@ -63,6 +63,7 @@ public class BuyerProductController {
             productVO.setCategoryType(productCategory.getCategoryType());
             //赋值类目类型名称
             productVO.setCategoryName(productCategory.getCategoryName());
+
             List<ProductInfoVO> productInfoVOList = new ArrayList<>();
             for (ProductInfo productInfo : productInfoList) {
                 if (productInfo.getCategoryType().equals(productCategory.getCategoryType())) {
@@ -74,7 +75,6 @@ public class BuyerProductController {
                     productInfoVO.setProductDescription(productInfo.getProductDescription());    //赋值商品描述
                     productInfoVO.setProductIcon(productInfo.getProductIcon());                  //赋值商品图片
                     */
-
                     //特殊方式  Java8语法
                     //一次性直接赋值
                     BeanUtils.copyProperties(productInfo, productInfoVO);

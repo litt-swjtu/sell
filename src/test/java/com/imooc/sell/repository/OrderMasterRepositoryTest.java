@@ -29,7 +29,7 @@ public class OrderMasterRepositoryTest {
     @Test
     public void savaTest() {
         OrderMaster orderMaster = new OrderMaster();
-        orderMaster.setOrderId("123457");
+        orderMaster.setOrderId("1234511");
         orderMaster.setBuyerName("李天峒");
         orderMaster.setBuyerPhone("12212222323");
         orderMaster.setBuyerAddress("庄浪县");

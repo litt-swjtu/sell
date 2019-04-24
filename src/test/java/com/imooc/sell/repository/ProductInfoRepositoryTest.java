@@ -1,7 +1,6 @@
 package com.imooc.sell.repository;
 
 import com.imooc.sell.dataobject.ProductInfo;
-import org.hibernate.validator.constraints.EAN;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,8 +10,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -30,7 +27,7 @@ public class ProductInfoRepositoryTest {
         productInfo.setProductPrice(new BigDecimal(6.5));
         productInfo.setProductStock(110);
         productInfo.setProductDescription("不是所有牛奶都叫特仑苏");
-        productInfo.setProductIcon("http://xxxx");
+        productInfo.setProductIcon("https://paimgcdn.baidu.com/8F7476E9286F3452?src=http%3A%2F%2Fms.bdimg.com%2Fdsp-image%2F1863859364.jpg&rz=urar_2_968_600&v=0");
         productInfo.setProductStatus(0);
         productInfo.setCategoryType(1);
 

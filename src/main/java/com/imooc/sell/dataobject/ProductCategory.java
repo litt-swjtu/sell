@@ -20,7 +20,7 @@ public class ProductCategory {
      * 类目id
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)    //自增的写法
     private Integer categoryId;
 
     /**

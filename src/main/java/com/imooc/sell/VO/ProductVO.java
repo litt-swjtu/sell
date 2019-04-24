@@ -5,7 +5,10 @@ import lombok.Data;
 
 import java.util.List;
 
-/*商品详情（含类目）
+/**
+商品详情（含类目）
+ * @author 李天峒
+ * @date 2018-12
  */
 @Data
 public class ProductVO {

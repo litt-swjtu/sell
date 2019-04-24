@@ -4,6 +4,7 @@ import lombok.Getter;
 
 @Getter
 public enum PayStatusEnum {
+    /**支付状态*/
     WAIT(0, "未支付"),
     SUCCESS(1, "支付完成");
 
