@@ -16,7 +16,7 @@ import java.util.Date;
 @Entity
 @Data
 @DynamicUpdate        //自动跟新时间的注解
-/*数据库对象映射（dao层） 订单对象*/
+/**数据库对象映射（dao层） 订单对象*/
 public class OrderMaster {
 
     /**

@@ -12,7 +12,6 @@ import java.util.Date;
 @Entity
 @DynamicUpdate            //动态更新
 @Data                    //lombok插件，用来生成Get、Set以及toString方法
-
 /**数据库对象映射（dao层） 商品类目对象*/
 public class ProductCategory {
 

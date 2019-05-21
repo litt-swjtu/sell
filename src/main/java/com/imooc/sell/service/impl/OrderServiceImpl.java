@@ -52,7 +52,7 @@ public class OrderServiceImpl implements OrderService {
      * 创建订单
      */
     @Override
-    @Transactional(rollbackFor = Exception.class)    //事务，还要全部成功，要么全部不成功
+    @Transactional(rollbackFor = Exception.class)    //事务，要么全部成功，要么全部不成功
     public OrderDTO create(OrderDTO orderDTO) {
 
         String orderId = KeyUtil.genUniqueKey();

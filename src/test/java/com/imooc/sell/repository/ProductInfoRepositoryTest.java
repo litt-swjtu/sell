@@ -22,12 +22,12 @@ public class ProductInfoRepositoryTest {
     public void saveTest() {
 
         ProductInfo productInfo = new ProductInfo();
-        productInfo.setProductId("12345");
-        productInfo.setProductName("特仑苏");
-        productInfo.setProductPrice(new BigDecimal(6.5));
-        productInfo.setProductStock(110);
-        productInfo.setProductDescription("不是所有牛奶都叫特仑苏");
-        productInfo.setProductIcon("https://paimgcdn.baidu.com/8F7476E9286F3452?src=http%3A%2F%2Fms.bdimg.com%2Fdsp-image%2F1863859364.jpg&rz=urar_2_968_600&v=0");
+        productInfo.setProductId("10000");
+        productInfo.setProductName("香飘飘");
+        productInfo.setProductPrice(new BigDecimal(3.5));
+        productInfo.setProductStock(100);
+        productInfo.setProductDescription("销售量可绕地球两圈");
+        productInfo.setProductIcon("https://img1.360buyimg.com/n6/jfs/t17908/186/1340081212/153109/b24c42e7/5ac354a7Naba6b1cd.jpg");
         productInfo.setProductStatus(0);
         productInfo.setCategoryType(1);
 

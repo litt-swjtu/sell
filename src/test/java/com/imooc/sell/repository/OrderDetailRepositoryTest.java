@@ -24,13 +24,13 @@ public class OrderDetailRepositoryTest {
     @Test
     public void saveTest() {
         OrderDetail orderDetail = new OrderDetail();
-        orderDetail.setDetailId("113");
+        orderDetail.setDetailId("10001");
         orderDetail.setOrderId("123453");
         orderDetail.setProductId("2222");
         orderDetail.setProductName("哇哈哈");
         orderDetail.setProductPrice(new BigDecimal(2.5));
         orderDetail.setProductQuantity(10);
-        orderDetail.setProductIcon("http://xxx");
+        orderDetail.setProductIcon("https://img1.360buyimg.com/n6/jfs/t19003/281/1047407486/176182/460c2487/5ab85582N5f18bef9.jpg");
         OrderDetail result = repository.save(orderDetail);
         Assert.assertNotNull(result);
     }
